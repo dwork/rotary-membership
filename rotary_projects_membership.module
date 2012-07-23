@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Rotary Projects & Membership feature.
+ */
+
+include_once 'rotary_projects_membership.features.inc';
