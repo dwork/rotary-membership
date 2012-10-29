@@ -13,13 +13,13 @@ function rotary_projects_membership_user_default_roles() {
   // Exported role: Secretary.
   $roles['Secretary'] = array(
     'name' => 'Secretary',
-    'weight' => '6',
+    'weight' => '4',
   );
 
   // Exported role: Treasurer.
   $roles['Treasurer'] = array(
     'name' => 'Treasurer',
-    'weight' => '5',
+    'weight' => '3',
   );
 
   // Exported role: administrator.

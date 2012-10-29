@@ -40,7 +40,7 @@ function rotary_projects_membership_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-50',
     'parent_path' => 'members',
   );
   // Exported menu link: main-menu:committees
@@ -51,7 +51,7 @@ function rotary_projects_membership_menu_default_menu_links() {
     'link_title' => 'Committees',
     'options' => array(
       'attributes' => array(
-        'title' => 'Committees',
+        'title' => 'List of Committees',
       ),
     ),
     'module' => 'system',
@@ -59,7 +59,7 @@ function rotary_projects_membership_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-47',
   );
   // Exported menu link: main-menu:members
   $menu_links['main-menu:members'] = array(
@@ -73,7 +73,7 @@ function rotary_projects_membership_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-49',
   );
   // Exported menu link: main-menu:projects
   $menu_links['main-menu:projects'] = array(
@@ -91,7 +91,7 @@ function rotary_projects_membership_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-48',
   );
   // Exported menu link: main-menu:roster
   $menu_links['main-menu:roster'] = array(
@@ -109,7 +109,7 @@ function rotary_projects_membership_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '0',
+    'weight' => '-49',
     'parent_path' => 'members',
   );
   // Translatables

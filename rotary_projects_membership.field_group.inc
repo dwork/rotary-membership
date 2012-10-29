@@ -310,6 +310,8 @@ function rotary_projects_membership_field_group_info() {
     'weight' => '8',
     'children' => array(
       0 => 'field_project_address',
+      1 => 'field_project_map',
+      2 => 'field_directions_to_project',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

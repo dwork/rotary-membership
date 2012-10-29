@@ -120,7 +120,7 @@ function rotary_projects_membership_views_default_views() {
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -244,6 +244,23 @@ print substr($data->field_field_birthdate[0][\'raw\'][\'value\'],5,2);
   $handler->display->display_options['sorts']['field_birthdate_value']['id'] = 'field_birthdate_value';
   $handler->display->display_options['sorts']['field_birthdate_value']['table'] = 'field_data_field_birthdate';
   $handler->display->display_options['sorts']['field_birthdate_value']['field'] = 'field_birthdate_value';
+  /* Contextual filter: Field: Chapter/Club (field_chapter) */
+  $handler->display->display_options['arguments']['field_chapter_target_id']['id'] = 'field_chapter_target_id';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['table'] = 'field_data_field_chapter';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['field'] = 'field_chapter_target_id';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_options']['code'] = 'global $user;
+$node = user_load($user->uid);
+if (isset($node->field_chapter[\'und\'][0][\'target_id\'])) {
+ return $node->field_chapter[\'und\'][0][\'target_id\'];
+} ';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['field_chapter_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['field_chapter_target_id']['not'] = 0;
   /* Filter criterion: User: Active */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
@@ -333,7 +350,7 @@ print substr($data->field_field_birthdate[0][\'raw\'][\'value\'],5,2);
   $handler->display->display_options['relationships']['user']['field'] = 'user';
   $handler->display->display_options['relationships']['user']['relationship'] = 'reverse_field_officer_profile2';
   $handler->display->display_options['relationships']['user']['required'] = 1;
-  /* Relationship: User: Member Name (field_member_name) */
+  /* Relationship: Field: Member Name (field_member_name) */
   $handler->display->display_options['relationships']['field_member_name_value']['id'] = 'field_member_name_value';
   $handler->display->display_options['relationships']['field_member_name_value']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['relationships']['field_member_name_value']['field'] = 'field_member_name_value';
@@ -391,7 +408,7 @@ print substr($data->field_field_birthdate[0][\'raw\'][\'value\'],5,2);
   $handler->display->display_options['fields']['user']['empty_zero'] = 0;
   $handler->display->display_options['fields']['user']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['user']['format_plural'] = 0;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -452,6 +469,38 @@ print substr($data->field_field_birthdate[0][\'raw\'][\'value\'],5,2);
   $handler->display->display_options['sorts']['weight']['id'] = 'weight';
   $handler->display->display_options['sorts']['weight']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['sorts']['weight']['field'] = 'weight';
+  /* Contextual filter: Field: Chapter/Club (field_chapter) */
+  $handler->display->display_options['arguments']['field_chapter_target_id']['id'] = 'field_chapter_target_id';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['table'] = 'field_data_field_chapter';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['field'] = 'field_chapter_target_id';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['relationship'] = 'user';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_options']['code'] = 'global $user;
+$node = user_load($user->uid);
+if (isset($node->field_chapter[\'und\'][0][\'target_id\'])) {  // logged in user
+ return $node->field_chapter[\'und\'][0][\'target_id\'];
+} elseif (function_exists(\'attendance_get_config\')) {  // attendance module installed
+  $config = attendance_get_config();
+  if (isset($config->field_chapter[\'und\'][0][\'target_id\'])) {
+    return $config->field_chapter[\'und\'][0][\'target_id\'];
+  }
+} 
+  // get the first Chapter/club record
+  $query = new EntityFieldQuery();
+  $query->entityCondition(\'entity_type\', \'node\')
+            ->entityCondition(\'bundle\', \'chapter\');
+  $result = $query->execute();
+  if (isset($result[\'node\'])) {
+    return current(array_keys($result[\'node\']));
+  }
+';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['field_chapter_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_chapter_target_id']['break_phrase'] = 0;
+  $handler->display->display_options['arguments']['field_chapter_target_id']['not'] = 0;
   /* Filter criterion: Taxonomy vocabulary: Machine name */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
@@ -761,7 +810,7 @@ if (isset( $data->field_field_phone[0])) {
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -816,7 +865,7 @@ if (isset( $data->field_field_phone[0])) {
   $handler->display->display_options['fields']['mail']['hide_empty'] = 0;
   $handler->display->display_options['fields']['mail']['empty_zero'] = 0;
   $handler->display->display_options['fields']['mail']['hide_alter_empty'] = 1;
-  /* Field: Profile: Contact Phone */
+  /* Field: Field: Contact Info */
   $handler->display->display_options['fields']['field_contact_phone']['id'] = 'field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['table'] = 'field_data_field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['field'] = 'field_contact_phone';
@@ -1305,7 +1354,7 @@ return $name;';
   $handler->display->display_options['fields']['body']['empty_zero'] = 0;
   $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['body']['field_api_classes'] = 0;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -1558,7 +1607,7 @@ return $name;';
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -1953,7 +2002,7 @@ foreach ($result as $record) {
   $handler->display->display_options['fields']['mail']['hide_empty'] = 0;
   $handler->display->display_options['fields']['mail']['empty_zero'] = 0;
   $handler->display->display_options['fields']['mail']['hide_alter_empty'] = 1;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -1983,11 +2032,12 @@ foreach ($result as $record) {
     'add' => 'Add',
   );
   $handler->display->display_options['fields']['field_member_name']['field_api_classes'] = 0;
-  /* Field: Profile: Contact Phone */
+  /* Field: Field: Contact Info */
   $handler->display->display_options['fields']['field_contact_phone']['id'] = 'field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['table'] = 'field_data_field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['field'] = 'field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_contact_phone']['label'] = 'Contact Phone';
   $handler->display->display_options['fields']['field_contact_phone']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_contact_phone']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_contact_phone']['alter']['make_link'] = 0;
@@ -2584,7 +2634,7 @@ foreach ($result as $record) {
   $handler->display->display_options['fields']['name']['link_to_user'] = 1;
   $handler->display->display_options['fields']['name']['overwrite_anonymous'] = 0;
   $handler->display->display_options['fields']['name']['format_username'] = 1;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -2669,11 +2719,12 @@ foreach ($result as $record) {
     ),
   );
   $handler->display->display_options['fields']['field_work_address']['field_api_classes'] = 0;
-  /* Field: Profile: Contact Phone */
+  /* Field: Field: Contact Info */
   $handler->display->display_options['fields']['field_contact_phone']['id'] = 'field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['table'] = 'field_data_field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['field'] = 'field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_contact_phone']['label'] = 'Contact Phone';
   $handler->display->display_options['fields']['field_contact_phone']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_contact_phone']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_contact_phone']['alter']['make_link'] = 0;
@@ -3272,7 +3323,7 @@ foreach ($result as $record) {
   $handler->display->display_options['fields']['field_classification']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_classification']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['fields']['field_classification']['field_api_classes'] = 0;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -3940,7 +3991,7 @@ if (isset( $data->field_field_phone[0])) {
 ?>';
   $handler->display->display_options['fields']['php_2']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_2']['php_click_sortable'] = '';
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -3999,11 +4050,12 @@ if (isset( $data->field_field_phone[0])) {
   $handler->display->display_options['fields']['mail']['hide_empty'] = 0;
   $handler->display->display_options['fields']['mail']['empty_zero'] = 0;
   $handler->display->display_options['fields']['mail']['hide_alter_empty'] = 1;
-  /* Field: Profile: Contact Phone */
+  /* Field: Field: Contact Info */
   $handler->display->display_options['fields']['field_contact_phone_1']['id'] = 'field_contact_phone_1';
   $handler->display->display_options['fields']['field_contact_phone_1']['table'] = 'field_data_field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone_1']['field'] = 'field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone_1']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_contact_phone_1']['label'] = 'Contact Phone';
   $handler->display->display_options['fields']['field_contact_phone_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_contact_phone_1']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_contact_phone_1']['alter']['make_link'] = 0;
@@ -4298,34 +4350,34 @@ return $name;';
   $handler->display->display_options['fields']['nothing_2']['hide_empty'] = 0;
   $handler->display->display_options['fields']['nothing_2']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nothing_2']['hide_alter_empty'] = 0;
-  /* Field: Content: Youtube Video */
-  $handler->display->display_options['fields']['field_youtube_video']['id'] = 'field_youtube_video';
-  $handler->display->display_options['fields']['field_youtube_video']['table'] = 'field_data_field_youtube_video';
-  $handler->display->display_options['fields']['field_youtube_video']['field'] = 'field_youtube_video';
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['field_youtube_video']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_youtube_video']['hide_empty'] = 1;
-  $handler->display->display_options['fields']['field_youtube_video']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_youtube_video']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_youtube_video']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_youtube_video']['type'] = 'file_rendered';
-  $handler->display->display_options['fields']['field_youtube_video']['settings'] = array(
+  /* Field: Content: Youtube */
+  $handler->display->display_options['fields']['field_youtube']['id'] = 'field_youtube';
+  $handler->display->display_options['fields']['field_youtube']['table'] = 'field_data_field_youtube';
+  $handler->display->display_options['fields']['field_youtube']['field'] = 'field_youtube';
+  $handler->display->display_options['fields']['field_youtube']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_youtube']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_youtube']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['element_label_colon'] = 1;
+  $handler->display->display_options['fields']['field_youtube']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_youtube']['hide_empty'] = 1;
+  $handler->display->display_options['fields']['field_youtube']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_youtube']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_youtube']['type'] = 'file_rendered';
+  $handler->display->display_options['fields']['field_youtube']['settings'] = array(
     'file_view_mode' => 'default',
   );
-  $handler->display->display_options['fields']['field_youtube_video']['field_api_classes'] = 0;
+  $handler->display->display_options['fields']['field_youtube']['field_api_classes'] = 0;
   /* Field: ( Return to Projects) Link */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
@@ -4560,7 +4612,7 @@ return $name;';
   $handler->display->display_options['fields']['field_project_type']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_project_type']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_project_type']['field_api_classes'] = 0;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';
@@ -4850,11 +4902,12 @@ return $name;';
   $handler->display->display_options['fields']['nothing_3']['hide_empty'] = 0;
   $handler->display->display_options['fields']['nothing_3']['empty_zero'] = 0;
   $handler->display->display_options['fields']['nothing_3']['hide_alter_empty'] = 0;
-  /* Field: Profile: Contact Phone */
+  /* Field: Field: Contact Info */
   $handler->display->display_options['fields']['field_contact_phone']['id'] = 'field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['table'] = 'field_data_field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['field'] = 'field_contact_phone';
   $handler->display->display_options['fields']['field_contact_phone']['relationship'] = 'profile';
+  $handler->display->display_options['fields']['field_contact_phone']['label'] = 'Contact Phone';
   $handler->display->display_options['fields']['field_contact_phone']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_contact_phone']['alter']['alter_text'] = 0;
   $handler->display->display_options['fields']['field_contact_phone']['alter']['make_link'] = 0;
@@ -4885,7 +4938,7 @@ return $name;';
   $handler->display->display_options['fields']['field_contact_phone']['delta_reversed'] = 0;
   $handler->display->display_options['fields']['field_contact_phone']['delta_first_last'] = 0;
   $handler->display->display_options['fields']['field_contact_phone']['field_api_classes'] = 0;
-  /* Field: User: Member Name */
+  /* Field: Field: Member Name */
   $handler->display->display_options['fields']['field_member_name']['id'] = 'field_member_name';
   $handler->display->display_options['fields']['field_member_name']['table'] = 'field_data_field_member_name';
   $handler->display->display_options['fields']['field_member_name']['field'] = 'field_member_name';

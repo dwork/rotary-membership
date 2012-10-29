@@ -30,6 +30,14 @@ function rotary_projects_membership_views_api() {
  */
 function rotary_projects_membership_node_info() {
   $items = array(
+    'chapter' => array(
+      'name' => t('Chapter'),
+      'base' => 'node_content',
+      'description' => t('Chapter/Club information - mailing address, default meeting location and time, club#, etc.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'committees' => array(
       'name' => t('Committee'),
       'base' => 'node_content',
@@ -70,7 +78,6 @@ function rotary_projects_membership_default_profile2_type() {
     "label" : "Contact Info",
     "weight" : "0",
     "data" : { "registration" : 1, "use_page" : 0 },
-    "metatags" : [],
     "rdf_mapping" : []
   }');
   $items['rotary_information'] = entity_import('profile2_type', '{
@@ -80,7 +87,6 @@ function rotary_projects_membership_default_profile2_type() {
     "label" : "Rotary Information",
     "weight" : "0",
     "data" : { "registration" : 1, "use_page" : 0 },
-    "metatags" : [],
     "rdf_mapping" : []
   }');
   return $items;
