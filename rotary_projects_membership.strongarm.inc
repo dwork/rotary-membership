@@ -250,6 +250,15 @@ function rotary_projects_membership_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_documentation';
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
+  $export['menu_options_documentation'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_location';
   $strongarm->value = array(
     0 => 'main-menu',
@@ -278,6 +287,13 @@ function rotary_projects_membership_strongarm() {
   $strongarm->name = 'menu_parent_committees';
   $strongarm->value = 'main-menu:1275';
   $export['menu_parent_committees'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_documentation';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_documentation'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -315,6 +331,15 @@ function rotary_projects_membership_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_documentation';
+  $strongarm->value = array(
+    0 => 'status',
+  );
+  $export['node_options_documentation'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_location';
   $strongarm->value = array(
     0 => 'status',
@@ -347,6 +372,13 @@ function rotary_projects_membership_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_documentation';
+  $strongarm->value = '1';
+  $export['node_preview_documentation'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_location';
   $strongarm->value = '1';
   $export['node_preview_location'] = $strongarm;
@@ -371,6 +403,13 @@ function rotary_projects_membership_strongarm() {
   $strongarm->name = 'node_submitted_committees';
   $strongarm->value = 0;
   $export['node_submitted_committees'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_documentation';
+  $strongarm->value = 1;
+  $export['node_submitted_documentation'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

@@ -46,6 +46,14 @@ function rotary_projects_membership_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'documentation' => array(
+      'name' => t('Documentation'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'location' => array(
       'name' => t('Location'),
       'base' => 'node_content',
