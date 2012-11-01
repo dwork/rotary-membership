@@ -210,7 +210,7 @@ function rotary_projects_membership_content_defaults() {
     'exported_path' => 'help/documents/getting-started',
     'title' => 'Getting Started',
     'status' => '1',
-    'promote' => '0',
+    'promote' => '1',
     'sticky' => '0',
     'type' => 'documentation',
     'language' => 'und',
@@ -240,11 +240,31 @@ function rotary_projects_membership_content_defaults() {
 			<li>
 				Rotary Status: allows you to flag Rotarians with one or more types, such as &quot;Active&quot;, &quot;Charter Member&quot;, &quot;Inactive&quot; and so on.</li>
 			<li>
-				Title: a formal title for Rotarians, such as &quot;Mr&quot;, &quot;Mrs&quot;, &quot;Sir&quot; and so on.</li>
+				Title: a formal title for Rotarians, such as &quot;Mr&quot;, &quot;Mrs&quot;, &quot;Sir&quot; and so on.<br />
+				&nbsp;</li>
 		</ul>
 	</li>
 	<li>
-		Nodes (content) : click on &quot;Content&quot; to display a list of nodes that need to be updated.</li>
+		Site Information: click &quot;Configuration &gt;&gt; System &gt;&gt; Site Information&quot;<br />
+		You will need to change your Site Name, Slogan and email address. This information is displayed in the &quot;heading&quot; of the site and must be accurate.<br />
+		&nbsp;</li>
+	<li>
+		Nodes (content) : click &quot;Content&quot; to display a list of nodes that need to be updated.
+		<ul>
+			<li>
+				Mailing Address</li>
+			<li>
+				Meeting Location</li>
+			<li>
+				Chapter<br />
+				&nbsp;</li>
+		</ul>
+	</li>
+	<li>
+		Add your club members: click &quot;People &gt;&gt; Add user&quot;.&nbsp;<br />
+		&nbsp;</li>
+	<li>
+		Finally, edit THIS document and remove it from your front page: click &quot;Content&quot; and click &quot;edit&quot; on the &quot;Getting Started&quot; documentation. At the bottom of the screen, you&#39;ll see &quot;Publishing options&quot;. Click on this and then UNCHECK &quot;Promoted to front page&quot;.</li>
 </ol>
 ',
           'summary' => '',
@@ -266,10 +286,28 @@ The "Administrative Menu" is located at the top of your screen. Click on the app
 <li>
 				Rotary Status: allows you to flag Rotarians with one or more types, such as "Active", "Charter Member", "Inactive" and so on.</li>
 <li>
-				Title: a formal title for Rotarians, such as "Mr", "Mrs", "Sir" and so on.</li>
+				Title: a formal title for Rotarians, such as "Mr", "Mrs", "Sir" and so on.<br />
+				 </li>
 </ul></li>
 <li>
-		Nodes (content) : click on "Content" to display a list of nodes that need to be updated.</li>
+		Site Information: click "Configuration &gt;&gt; System &gt;&gt; Site Information"<br />
+		You will need to change your Site Name, Slogan and email address. This information is displayed in the "heading" of the site and must be accurate.<br />
+		 </li>
+<li>
+		Nodes (content) : click "Content" to display a list of nodes that need to be updated.
+<ul><li>
+				Mailing Address</li>
+<li>
+				Meeting Location</li>
+<li>
+				Chapter<br />
+				 </li>
+</ul></li>
+<li>
+		Add your club members: click "People &gt;&gt; Add user". <br />
+		 </li>
+<li>
+		Finally, edit THIS document and remove it from your front page: click "Content" and click "edit" on the "Getting Started" documentation. At the bottom of the screen, you\'ll see "Publishing options". Click on this and then UNCHECK "Promoted to front page".</li>
 </ol>',
           'safe_summary' => '',
         ),
