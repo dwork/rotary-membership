@@ -252,9 +252,23 @@ print substr($data->field_field_birthdate[0][\'raw\'][\'value\'],5,2);
   $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_type'] = 'php';
   $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_options']['code'] = 'global $user;
 $node = user_load($user->uid);
-if (isset($node->field_chapter[\'und\'][0][\'target_id\'])) {
+if (isset($node->field_chapter[\'und\'][0][\'target_id\'])) {  // logged in user
  return $node->field_chapter[\'und\'][0][\'target_id\'];
-} ';
+} elseif (function_exists(\'attendance_get_config\')) {  // attendance module installed
+  $config = attendance_get_config();
+  if (isset($config->field_chapter[\'und\'][0][\'target_id\'])) {
+    return $config->field_chapter[\'und\'][0][\'target_id\'];
+  }
+} 
+  // get the first Chapter/club record
+  $query = new EntityFieldQuery();
+  $query->entityCondition(\'entity_type\', \'node\')
+            ->entityCondition(\'bundle\', \'chapter\');
+  $result = $query->execute();
+  if (isset($result[\'node\'])) {
+    return current(array_keys($result[\'node\']));
+  }
+';
   $handler->display->display_options['arguments']['field_chapter_target_id']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['field_chapter_target_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_chapter_target_id']['summary']['format'] = 'default_summary';
