@@ -40,26 +40,8 @@ function rotary_projects_membership_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-50',
+    'weight' => '0',
     'parent_path' => 'members',
-  );
-  // Exported menu link: main-menu:committees
-  $menu_links['main-menu:committees'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'committees',
-    'router_path' => 'committees',
-    'link_title' => 'Committees',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'List of Committees',
-      ),
-    ),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-47',
   );
   // Exported menu link: main-menu:members
   $menu_links['main-menu:members'] = array(
@@ -73,25 +55,7 @@ function rotary_projects_membership_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '1',
     'expanded' => '0',
-    'weight' => '-49',
-  );
-  // Exported menu link: main-menu:projects
-  $menu_links['main-menu:projects'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'projects',
-    'router_path' => 'projects',
-    'link_title' => 'Projects',
-    'options' => array(
-      'attributes' => array(
-        'title' => 'Projects and Committees',
-      ),
-    ),
-    'module' => 'system',
-    'hidden' => '0',
-    'external' => '0',
-    'has_children' => '1',
-    'expanded' => '0',
-    'weight' => '-48',
+    'weight' => '0',
   );
   // Exported menu link: main-menu:roster
   $menu_links['main-menu:roster'] = array(
@@ -109,7 +73,7 @@ function rotary_projects_membership_menu_default_menu_links() {
     'external' => '0',
     'has_children' => '0',
     'expanded' => '0',
-    'weight' => '-49',
+    'weight' => '0',
     'parent_path' => 'members',
   );
   // Exported menu link: main-menu:user/login
@@ -163,12 +127,10 @@ function rotary_projects_membership_menu_default_menu_links() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Birthdays');
-  t('Committees');
   t('Home');
   t('Login');
   t('Logout');
   t('Members');
-  t('Projects');
   t('Roster');
 
 

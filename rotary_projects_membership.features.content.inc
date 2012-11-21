@@ -315,33 +315,6 @@ The "Administrative Menu" is located at the top of your screen. Click on the app
     ),
   );
 
-  $content['doc_projects'] = (object) array(
-    'exported_path' => 'help/documents/projects',
-    'title' => 'Projects',
-    'status' => '1',
-    'promote' => '0',
-    'sticky' => '0',
-    'type' => 'documentation',
-    'language' => 'und',
-    'created' => '1339826582',
-    'comment' => '0',
-    'translate' => '0',
-    'machine_name' => 'doc_projects',
-    'body' => array(
-      'und' => array(
-        0 => array(
-          'value' => '<p>Projects are ...</p>
-',
-          'summary' => '',
-          'format' => 'filtered_html',
-          'safe_value' => '<p>Projects are ...</p>
-',
-          'safe_summary' => '',
-        ),
-      ),
-    ),
-  );
-
   $content['doc_taxonomy'] = (object) array(
     'exported_path' => 'help/documents/taxonomy-term-maintenance',
     'title' => 'Taxonomy Term Maintenance',

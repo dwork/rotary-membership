@@ -13,6 +13,36 @@ function rotary_projects_membership_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_clubinfo|user|user|form';
+  $field_group->group_name = 'group_clubinfo';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Club Information',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_chapter',
+      1 => 'field_classification',
+      2 => 'field_status',
+      3 => 'field_member_id',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_clubinfo|user|user|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_clubinvolvement|profile2|rotary_information|form';
   $field_group->group_name = 'group_clubinvolvement';
   $field_group->entity_type = 'profile2';
@@ -52,13 +82,12 @@ function rotary_projects_membership_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Demographic',
-    'weight' => '6',
+    'weight' => '7',
     'children' => array(
       0 => 'field_birthdate',
       1 => 'field_gender',
       2 => 'field_deceased',
       3 => 'field_spouse_sig_oth',
-      4 => 'field_spouse_phf',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -83,7 +112,7 @@ function rotary_projects_membership_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Employer',
-    'weight' => '7',
+    'weight' => '8',
     'children' => array(
       0 => 'field_employer',
       1 => 'field_job_title',
@@ -116,6 +145,7 @@ function rotary_projects_membership_field_group_info() {
     'children' => array(
       0 => 'field_phf',
       1 => 'field_benefactor',
+      2 => 'field_spouse_phf',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -189,64 +219,6 @@ function rotary_projects_membership_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_phonenumbers|node|committees|form';
-  $field_group->group_name = 'group_phonenumbers';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'committees';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Phone Numbers',
-    'weight' => '3',
-    'children' => array(
-      0 => 'field_phone',
-      1 => 'field_phone_number_purpose',
-      2 => 'field_private',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['group_phonenumbers|node|committees|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_phonenumbers|node|project|form';
-  $field_group->group_name = 'group_phonenumbers';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'project';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Phone Numbers',
-    'weight' => '3',
-    'children' => array(
-      0 => 'field_phone',
-      1 => 'field_phone_number_purpose',
-      2 => 'field_private',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['group_phonenumbers|node|project|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_phonenumbers|profile2|main|form';
   $field_group->group_name = 'group_phonenumbers';
   $field_group->entity_type = 'profile2';
@@ -299,35 +271,6 @@ function rotary_projects_membership_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_projectaddress|node|project|form';
-  $field_group->group_name = 'group_projectaddress';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'project';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Project Address',
-    'weight' => '8',
-    'children' => array(
-      0 => 'field_project_address',
-      1 => 'field_project_map',
-      2 => 'field_directions_to_project',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['group_projectaddress|node|project|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_rotarydata|profile2|rotary_information|form';
   $field_group->group_name = 'group_rotarydata';
   $field_group->entity_type = 'profile2';
@@ -343,7 +286,6 @@ function rotary_projects_membership_field_group_info() {
       2 => 'field_date_joined',
       3 => 'field_former_club_s_',
       4 => 'field_date_joined_rotary',
-      5 => 'field_classification',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

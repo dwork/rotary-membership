@@ -32,29 +32,6 @@ function rotary_projects_membership_taxonomy_default_vocabularies() {
         ),
       ),
     ),
-    'committee_type' => array(
-      'name' => 'Committee Type',
-      'machine_name' => 'committee_type',
-      'description' => 'Committee',
-      'hierarchy' => '0',
-      'module' => 'taxonomy',
-      'weight' => '0',
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
-    ),
     'location' => array(
       'name' => 'Location',
       'machine_name' => 'location',
@@ -128,52 +105,6 @@ function rotary_projects_membership_taxonomy_default_vocabularies() {
       'name' => 'Phone Types',
       'machine_name' => 'phone_types',
       'description' => 'Phone Types',
-      'hierarchy' => '0',
-      'module' => 'taxonomy',
-      'weight' => '0',
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
-    ),
-    'project_type' => array(
-      'name' => 'Project Type',
-      'machine_name' => 'project_type',
-      'description' => 'Type of Project',
-      'hierarchy' => '0',
-      'module' => 'taxonomy',
-      'weight' => '0',
-      'rdf_mapping' => array(
-        'rdftype' => array(
-          0 => 'skos:ConceptScheme',
-        ),
-        'name' => array(
-          'predicates' => array(
-            0 => 'dc:title',
-          ),
-        ),
-        'description' => array(
-          'predicates' => array(
-            0 => 'rdfs:comment',
-          ),
-        ),
-      ),
-    ),
-    'rotary_status' => array(
-      'name' => 'Rotary Status',
-      'machine_name' => 'rotary_status',
-      'description' => 'Rotary Status',
       'hierarchy' => '0',
       'module' => 'taxonomy',
       'weight' => '0',

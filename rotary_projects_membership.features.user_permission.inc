@@ -354,27 +354,9 @@ function rotary_projects_membership_user_default_permissions() {
     'module' => 'user',
   );
 
-  // Exported permission: create committees content.
-  $permissions['create committees content'] = array(
-    'name' => 'create committees content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: create location content.
   $permissions['create location content'] = array(
     'name' => 'create location content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: create project content.
-  $permissions['create project content'] = array(
-    'name' => 'create project content',
     'roles' => array(
       0 => 'administrator',
     ),
@@ -390,15 +372,6 @@ function rotary_projects_membership_user_default_permissions() {
     'module' => 'path',
   );
 
-  // Exported permission: delete any committees content.
-  $permissions['delete any committees content'] = array(
-    'name' => 'delete any committees content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: delete any location content.
   $permissions['delete any location content'] = array(
     'name' => 'delete any location content',
@@ -408,36 +381,9 @@ function rotary_projects_membership_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: delete any project content.
-  $permissions['delete any project content'] = array(
-    'name' => 'delete any project content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: delete own committees content.
-  $permissions['delete own committees content'] = array(
-    'name' => 'delete own committees content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: delete own location content.
   $permissions['delete own location content'] = array(
     'name' => 'delete own location content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: delete own project content.
-  $permissions['delete own project content'] = array(
-    'name' => 'delete own project content',
     'roles' => array(
       0 => 'administrator',
     ),
@@ -462,15 +408,6 @@ function rotary_projects_membership_user_default_permissions() {
     'module' => 'admin_menu',
   );
 
-  // Exported permission: edit any committees content.
-  $permissions['edit any committees content'] = array(
-    'name' => 'edit any committees content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: edit any location content.
   $permissions['edit any location content'] = array(
     'name' => 'edit any location content',
@@ -489,15 +426,6 @@ function rotary_projects_membership_user_default_permissions() {
     'module' => 'profile2',
   );
 
-  // Exported permission: edit any project content.
-  $permissions['edit any project content'] = array(
-    'name' => 'edit any project content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: edit any rotary_information profile.
   $permissions['edit any rotary_information profile'] = array(
     'name' => 'edit any rotary_information profile',
@@ -505,15 +433,6 @@ function rotary_projects_membership_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'profile2',
-  );
-
-  // Exported permission: edit own committees content.
-  $permissions['edit own committees content'] = array(
-    'name' => 'edit own committees content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: edit own location content.
@@ -533,15 +452,6 @@ function rotary_projects_membership_user_default_permissions() {
       1 => 'authenticated user',
     ),
     'module' => 'profile2',
-  );
-
-  // Exported permission: edit own project content.
-  $permissions['edit own project content'] = array(
-    'name' => 'edit own project content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: edit own rotary_information profile.
