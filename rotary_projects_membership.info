@@ -35,6 +35,7 @@ dependencies[] = imce
 dependencies[] = link
 dependencies[] = list
 dependencies[] = menu
+dependencies[] = mimemail
 dependencies[] = number
 dependencies[] = pathauto
 dependencies[] = php
