@@ -10,6 +10,7 @@ dependencies[] = admin_menu
 dependencies[] = block
 dependencies[] = cck_phone
 dependencies[] = ckeditor
+dependencies[] = context
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = date_api
