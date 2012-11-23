@@ -134,6 +134,7 @@ features[profile2_type][] = main
 features[profile2_type][] = rotary_information
 features[taxonomy][] = classification
 features[taxonomy][] = location
+features[taxonomy][] = member_status
 features[taxonomy][] = officers
 features[taxonomy][] = phf
 features[taxonomy][] = phone_types
