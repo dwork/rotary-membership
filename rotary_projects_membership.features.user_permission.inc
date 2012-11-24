@@ -219,24 +219,6 @@ function rotary_projects_membership_user_default_permissions() {
     'module' => 'user',
   );
 
-  // Exported permission: administer profile types.
-  $permissions['administer profile types'] = array(
-    'name' => 'administer profile types',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'profile2',
-  );
-
-  // Exported permission: administer profiles.
-  $permissions['administer profiles'] = array(
-    'name' => 'administer profiles',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'profile2',
-  );
-
   // Exported permission: administer rules.
   $permissions['administer rules'] = array(
     'name' => 'administer rules',
@@ -417,24 +399,6 @@ function rotary_projects_membership_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: edit any main profile.
-  $permissions['edit any main profile'] = array(
-    'name' => 'edit any main profile',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'profile2',
-  );
-
-  // Exported permission: edit any rotary_information profile.
-  $permissions['edit any rotary_information profile'] = array(
-    'name' => 'edit any rotary_information profile',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'profile2',
-  );
-
   // Exported permission: edit own location content.
   $permissions['edit own location content'] = array(
     'name' => 'edit own location content',
@@ -442,26 +406,6 @@ function rotary_projects_membership_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: edit own main profile.
-  $permissions['edit own main profile'] = array(
-    'name' => 'edit own main profile',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
-    ),
-    'module' => 'profile2',
-  );
-
-  // Exported permission: edit own rotary_information profile.
-  $permissions['edit own rotary_information profile'] = array(
-    'name' => 'edit own rotary_information profile',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
-    ),
-    'module' => 'profile2',
   );
 
   // Exported permission: entityconnect add button.
@@ -599,44 +543,6 @@ function rotary_projects_membership_user_default_permissions() {
       0 => 'administrator',
     ),
     'module' => 'filter',
-  );
-
-  // Exported permission: view any main profile.
-  $permissions['view any main profile'] = array(
-    'name' => 'view any main profile',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'profile2',
-  );
-
-  // Exported permission: view any rotary_information profile.
-  $permissions['view any rotary_information profile'] = array(
-    'name' => 'view any rotary_information profile',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'profile2',
-  );
-
-  // Exported permission: view own main profile.
-  $permissions['view own main profile'] = array(
-    'name' => 'view own main profile',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
-    ),
-    'module' => 'profile2',
-  );
-
-  // Exported permission: view own rotary_information profile.
-  $permissions['view own rotary_information profile'] = array(
-    'name' => 'view own rotary_information profile',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'authenticated user',
-    ),
-    'module' => 'profile2',
   );
 
   // Exported permission: view own unpublished content.

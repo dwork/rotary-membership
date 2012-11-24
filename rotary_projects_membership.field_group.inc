@@ -43,37 +43,6 @@ function rotary_projects_membership_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_clubinvolvement|profile2|rotary_information|form';
-  $field_group->group_name = 'group_clubinvolvement';
-  $field_group->entity_type = 'profile2';
-  $field_group->bundle = 'rotary_information';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Club Involvement',
-    'weight' => '40',
-    'children' => array(
-      0 => 'field_officer',
-      1 => 'field_project_chair',
-      2 => 'field_project_member',
-      3 => 'field_committee_chair',
-      4 => 'field_committee_members',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['group_clubinvolvement|profile2|rotary_information|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_demographic|user|user|form';
   $field_group->group_name = 'group_demographic';
   $field_group->entity_type = 'user';
@@ -133,35 +102,6 @@ function rotary_projects_membership_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_foundation|profile2|rotary_information|form';
-  $field_group->group_name = 'group_foundation';
-  $field_group->entity_type = 'profile2';
-  $field_group->bundle = 'rotary_information';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Foundation',
-    'weight' => '50',
-    'children' => array(
-      0 => 'field_phf',
-      1 => 'field_benefactor',
-      2 => 'field_spouse_phf',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['group_foundation|profile2|rotary_information|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_homeaddress|profile2|main|form';
   $field_group->group_name = 'group_homeaddress';
   $field_group->entity_type = 'profile2';
@@ -190,19 +130,21 @@ function rotary_projects_membership_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_interests|profile2|rotary_information|form';
-  $field_group->group_name = 'group_interests';
-  $field_group->entity_type = 'profile2';
-  $field_group->bundle = 'rotary_information';
+  $field_group->identifier = 'group_membername|user|user|form';
+  $field_group->group_name = 'group_membername';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Interests and Involvement',
-    'weight' => '60',
+    'label' => 'Member Name',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_foundation',
-      1 => 'field_district',
-      2 => 'field_club',
+      0 => 'field_first_name',
+      1 => 'field_middle_initial',
+      2 => 'field_last_name',
+      3 => 'field_member_title',
+      4 => 'field_suffix',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -214,7 +156,7 @@ function rotary_projects_membership_field_group_info() {
       ),
     ),
   );
-  $export['group_interests|profile2|rotary_information|form'] = $field_group;
+  $export['group_membername|user|user|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -267,37 +209,6 @@ function rotary_projects_membership_field_group_info() {
     ),
   );
   $export['group_primary|user|user|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_rotarydata|profile2|rotary_information|form';
-  $field_group->group_name = 'group_rotarydata';
-  $field_group->entity_type = 'profile2';
-  $field_group->bundle = 'rotary_information';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'Rotary Data',
-    'weight' => '30',
-    'children' => array(
-      0 => 'field_ri_member',
-      1 => 'field_sponsor',
-      2 => 'field_date_joined',
-      3 => 'field_former_club_s_',
-      4 => 'field_date_joined_rotary',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['group_rotarydata|profile2|rotary_information|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */

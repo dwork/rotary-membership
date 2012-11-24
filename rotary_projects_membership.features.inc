@@ -72,14 +72,5 @@ function rotary_projects_membership_default_profile2_type() {
     "data" : { "registration" : 1, "use_page" : 0 },
     "rdf_mapping" : []
   }');
-  $items['rotary_information'] = entity_import('profile2_type', '{
-    "userCategory" : true,
-    "userView" : true,
-    "type" : "rotary_information",
-    "label" : "Rotary Information",
-    "weight" : "0",
-    "data" : { "registration" : 1, "use_page" : 0 },
-    "rdf_mapping" : []
-  }');
   return $items;
 }
