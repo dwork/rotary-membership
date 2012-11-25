@@ -232,7 +232,6 @@ features[variable][] = smtp_protocol
 features[variable][] = smtp_username
 features[views_view][] = birthdays
 features[views_view][] = club_officers
-features[views_view][] = details
 features[views_view][] = location
 features[views_view][] = map_to_home
 features[views_view][] = map_to_work
