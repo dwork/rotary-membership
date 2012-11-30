@@ -2159,7 +2159,7 @@ function rotary_projects_membership_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_text',
-        'weight' => '10',
+        'weight' => '42',
       ),
     ),
   );
@@ -2366,7 +2366,7 @@ function rotary_projects_membership_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '12',
+        'weight' => '44',
       ),
     ),
   );
@@ -2552,7 +2552,7 @@ function rotary_projects_membership_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '11',
+        'weight' => '43',
       ),
     ),
   );
@@ -2879,6 +2879,72 @@ function rotary_projects_membership_field_default_fields() {
     ),
   );
 
+  // Exported field: 'user-user-field_officer'.
+  $fields['user-user-field_officer'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_officer',
+      'foreign keys' => array(
+        'tid' => array(
+          'columns' => array(
+            'tid' => 'tid',
+          ),
+          'table' => 'taxonomy_term_data',
+        ),
+      ),
+      'indexes' => array(
+        'tid' => array(
+          0 => 'tid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'taxonomy',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => array(
+            'vocabulary' => 'officers',
+            'parent' => '0',
+          ),
+        ),
+        'profile2_private' => FALSE,
+      ),
+      'translatable' => '0',
+      'type' => 'taxonomy_term_reference',
+    ),
+    'field_instance' => array(
+      'bundle' => 'user',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Optionally select one of more officer position held by this member.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'taxonomy',
+          'settings' => array(),
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => 24,
+        ),
+      ),
+      'entity_type' => 'user',
+      'field_name' => 'field_officer',
+      'label' => 'Officer',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => 1,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_select',
+        'weight' => '6',
+      ),
+    ),
+  );
+
   // Exported field: 'user-user-field_retired'.
   $fields['user-user-field_retired'] = array(
     'field_config' => array(
@@ -2994,7 +3060,7 @@ function rotary_projects_membership_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'text_textfield',
-        'weight' => '34',
+        'weight' => '4',
       ),
     ),
   );
@@ -3058,7 +3124,7 @@ function rotary_projects_membership_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '13',
+        'weight' => '45',
       ),
     ),
   );
@@ -3234,6 +3300,8 @@ function rotary_projects_membership_field_default_fields() {
   t('Member\'s suffix (e.g. Jr, Sr, III, Esq, etc.)');
   t('Member\'s title');
   t('Middle Name');
+  t('Officer');
+  t('Optionally select one of more officer position held by this member.');
   t('Phone');
   t('Phone Number');
   t('Phone Type');
